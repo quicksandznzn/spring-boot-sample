@@ -1,10 +1,9 @@
 package com.spring.service.impl;
 
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.stereotype.Service;
-
 import com.spring.model.User;
 import com.spring.service.RedisTestService;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
 
 @Service
 public class RedisTestServiceImpl implements RedisTestService {

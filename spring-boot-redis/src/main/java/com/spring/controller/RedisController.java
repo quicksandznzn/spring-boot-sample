@@ -1,17 +1,16 @@
 package com.spring.controller;
 
+import com.spring.model.User;
+import com.spring.service.RedisTestService;
+import com.spring.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.model.User;
-import com.spring.service.RedisTestService;
-import com.spring.util.RedisUtil;
-
 /**
  * redis
- * 
+ *
  * @author quicksandzn@gmail.com
  */
 @RestController
@@ -39,7 +38,7 @@ public class RedisController {
 
     @RequestMapping("/put")
     public Object put(@RequestParam(value = "key", required = true) String k,
-            @RequestParam(value = "value", required = true) String v) {
+        @RequestParam(value = "value", required = true) String v) {
 
         return redisUtil.set(k, v);
     }

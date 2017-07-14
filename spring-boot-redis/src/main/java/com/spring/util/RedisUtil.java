@@ -2,7 +2,6 @@ package com.spring.util;
 
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +11,12 @@ import org.springframework.stereotype.Component;
 
 /**
  * redis工具类
- * 
+ *
  * @author quicksandzn@gmail.com
  */
 @Component
 public class RedisUtil {
+
     private static final Logger log = LoggerFactory.getLogger(RedisUtil.class);
 
     @Autowired
@@ -24,8 +24,6 @@ public class RedisUtil {
 
     /**
      * 批量删除对应的value
-     * 
-     * @param keys
      */
     public void remove(final String... keys) {
         for (String key : keys) {
@@ -35,8 +33,6 @@ public class RedisUtil {
 
     /**
      * 批量删除key
-     * 
-     * @param pattern
      */
     public void removePattern(final String pattern) {
         Set<String> keys = redisTemplate.keys(pattern);
@@ -47,8 +43,6 @@ public class RedisUtil {
 
     /**
      * 删除对应的value
-     * 
-     * @param key
      */
     public void remove(final String key) {
         if (exists(key)) {
@@ -58,9 +52,6 @@ public class RedisUtil {
 
     /**
      * 判断缓存中是否有对应的value
-     * 
-     * @param key
-     * @return
      */
     public boolean exists(final String key) {
         return redisTemplate.hasKey(key);
@@ -68,9 +59,6 @@ public class RedisUtil {
 
     /**
      * 读取缓存
-     * 
-     * @param key
-     * @return
      */
     public Object get(final String key) {
         Object result;
@@ -81,10 +69,6 @@ public class RedisUtil {
 
     /**
      * 写入缓存
-     * 
-     * @param key
-     * @param value
-     * @return
      */
     public boolean set(final String key, Object value) {
         boolean result = false;
@@ -100,10 +84,6 @@ public class RedisUtil {
 
     /**
      * 写入缓存
-     * 
-     * @param key
-     * @param value
-     * @return
      */
     public boolean set(final String key, Object value, Long expireTime) {
         boolean result = false;

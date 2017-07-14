@@ -1,9 +1,8 @@
 package com.spring.data.solr.repository;
 
+import com.spring.data.solr.document.SupplyDoument;
 import org.springframework.data.solr.repository.SolrCrudRepository;
 
-import com.spring.data.solr.document.SupplyDoument;
+public interface SupplyRepository extends SolrCrudRepository<SupplyDoument, String> {
 
-public interface SupplyRepository extends SolrCrudRepository<SupplyDoument, String>{
-	
 }
