@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="true" scanPeriod="60 seconds">
+
+  <property name="LOG_HOME" value="logs/"/>
+
+  <property name="CONSOLE_LOG_PATTERN"
+    value="%highlight(%date{yyyy-MM-dd HH:mm:ss}) | %highlight(%-5level)  | %highlight(%logger) | %highlight(%msg%n)"/>
+
+  <appender class="ch.qos.logback.core.ConsoleAppender" name="STDOUT">
+    <encoder>
+      <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+    </encoder>
+  </appender>
+
+
+  <appender class="ch.qos.logback.core.rolling.RollingFileAppender"
+    name="FILE-OUT">
+    <file>${LOG_HOME}/sitemap.log</file>
+    <encoder>
+      <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+    </encoder>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_HOME}/sitemap.%d{yyyy-MM-dd}.log
+      </fileNamePattern>
+      <!-- 30 days -->
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+  </appender>
+
+
+  <root level="info">
+    <appender-ref ref="STDOUT"/>
+    <appender-ref ref="FILE-OUT"/>
+  </root>
+</configuration>
