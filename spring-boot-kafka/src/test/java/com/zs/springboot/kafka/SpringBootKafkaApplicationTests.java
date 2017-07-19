@@ -1,6 +1,6 @@
 package com.zs.springboot.kafka;
 
-import com.zs.springboot.kafka.producer.KafkaSenderService;
+import org.spring.springboot.kafka.producer.KafkaSenderService;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import org.junit.Test;
