@@ -1,5 +1,7 @@
 package com.zs.springboot.kafka.producer;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +10,6 @@ import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * Kafka 消息发送
@@ -32,7 +31,7 @@ public class KafkaSenderService {
      */
     public void sendMessage(String topic, String message) {
         executor.execute(() -> asyncSendMessage(topic, message));
-      //  LOGGER.info("send message='{}' to topic='{}' ", message, topic); // 打印日志会影响发送效率
+        //  LOGGER.info("send message='{}' to topic='{}' ", message, topic); // 打印日志会影响发送效率
     }
 
     /**
@@ -54,12 +53,15 @@ public class KafkaSenderService {
 
             @Override
             public void onSuccess(SendResult<String, String> result) {
-                LOGGER.info("SUCCESS: send message='{}' to topic='{}' with offset={}", message, topic, result.getRecordMetadata().offset());
+                LOGGER
+                    .info("SUCCESS: send message='{}' to topic='{}' with offset={}", message, topic,
+                        result.getRecordMetadata().offset());
             }
 
             @Override
             public void onFailure(Throwable ex) {
-                LOGGER.error("ERROR: unable to send message='{}' to topic='{}'", message, topic, ex);
+                LOGGER
+                    .error("ERROR: unable to send message='{}' to topic='{}'", message, topic, ex);
             }
         });
     }

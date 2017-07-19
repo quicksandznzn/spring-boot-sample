@@ -1,31 +1,28 @@
 package com.zs.springboot.kafka;
 
 import com.zs.springboot.kafka.producer.KafkaSenderService;
+import java.io.IOException;
+import java.time.LocalDateTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.io.IOException;
-import java.time.LocalDateTime;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringBootKafkaApplicationTests {
+
+    @Autowired
+    private KafkaSenderService senderService;
 
     @Test
     public void contextLoads() {
 
     }
 
-    @Autowired
-    private KafkaSenderService senderService;
-
     /**
      * 测试发送消息到 Kafka，消息会被 KafkaReceiverListener 接收
-     *
-     * @throws IOException
      */
     @Test
     public void sendKafka() throws IOException, InterruptedException {
