@@ -10,8 +10,6 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
  */
 public interface CityRepository extends ElasticsearchRepository<City, Long> {
 
-    Page<City> findByDesc(String desc, Pageable pageable);
-
     Page<City> findByName(String name, Pageable pageable);
 
 }

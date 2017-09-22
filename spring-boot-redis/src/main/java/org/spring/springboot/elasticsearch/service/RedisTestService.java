@@ -1,4 +1,4 @@
-package org.spring.springboot.elasticsearch.redis.service;
+package org.spring.springboot.elasticsearch.service;
 
 import org.spring.springboot.elasticsearch.redis.model.User;
 

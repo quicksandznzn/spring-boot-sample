@@ -47,4 +47,14 @@ public class City implements Serializable {
     public void setDesc(String desc) {
         this.desc = desc;
     }
+
+
+    @Override
+    public String toString() {
+        return "City{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", desc='" + desc + '\'' +
+            '}';
+    }
 }

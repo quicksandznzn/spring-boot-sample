@@ -1,7 +1,7 @@
-package org.spring.springboot.elasticsearch.redis.service.impl;
+package org.spring.springboot.elasticsearch.service.impl;
 
 import org.spring.springboot.elasticsearch.redis.model.User;
-import org.spring.springboot.elasticsearch.redis.service.RedisTestService;
+import org.spring.springboot.elasticsearch.service.RedisTestService;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 

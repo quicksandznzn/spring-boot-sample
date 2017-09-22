@@ -1,7 +1,7 @@
-package org.spring.springboot.elasticsearch.redis.controller;
+package org.spring.springboot.elasticsearch.controller;
 
 import org.spring.springboot.elasticsearch.redis.model.User;
-import org.spring.springboot.elasticsearch.redis.service.RedisTestService;
+import org.spring.springboot.elasticsearch.service.RedisTestService;
 import org.spring.springboot.elasticsearch.redis.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
